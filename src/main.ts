@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
-  app.use(helmet.hidePoweredBy({ setTo: 'Powerd By Rust' }))
+  app.use(helmet())
   app.use(
       new RateLimit({
           windowMs: 15 * 60 * 1000, // 15 minutes
